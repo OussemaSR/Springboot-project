@@ -1,0 +1,75 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org"
+ xmlns="http://www.w3.org/1999/xhtml"
+   
+    xmlns:sec="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/fontawesome.js"
+     integrity="sha384-7ox8Q2yzO/uWircfojVuCQOZl+ZZBg2D2J5nkpLqzH1HY0C1dHlTKIbpRz/LG23c" crossorigin="anonymous"></script>
+
+    <title>Login</title>
+
+
+
+
+    <!-- Bootstrap core CSS -->
+    
+   
+     <link rel="stylesheet" type="text/css" href="/css/materia/bootstrap.min.css"/>
+    
+
+    <!-- Custom styles for this template -->
+  
+     <link rel="stylesheet" type="text/css" href="/css/style.css"/>
+     
+    
+  </head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="/index">DIGITAL BIT RARY</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarText">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Acceuil <span class="sr-only">(current)</span></a>
+      </li>
+    
+    </ul>
+    
+  </div>
+</nav>
+
+	<div layout:fragment="content" class="container mySpace">
+	<div class="alert alert-danger" th:if="${param.error}">
+	
+     <h2>Invalid Email or Password</h2>	
+	</div>
+		<form th:action="@{/login}"  method="post">
+
+			<div class="form-group">
+				<label for="email" class="form-control-label">Email</label> <input
+					type="text" class="form-control"  id="email" name="username" />
+			
+			</div>
+			<div class="form-group">
+				<label for="password" class="form-control-label">Password</label> <input
+					type="password" class="form-control" 
+					id="password"  name="password"/>
+				
+
+			</div>
+			
+			<input type="submit" value="Submit" class="btn btn-primary" />
+
+		</form>
+	</div>
+</body>
+
+</html>

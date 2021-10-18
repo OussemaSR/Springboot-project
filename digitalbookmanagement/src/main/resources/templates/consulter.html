@@ -1,0 +1,70 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org"
+ xmlns="http://www.w3.org/1999/xhtml"
+   
+    xmlns:sec="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/fontawesome.js"
+     integrity="sha384-7ox8Q2yzO/uWircfojVuCQOZl+ZZBg2D2J5nkpLqzH1HY0C1dHlTKIbpRz/LG23c" crossorigin="anonymous"></script>
+
+    <title>Login</title>
+
+
+
+
+    <!-- Bootstrap core CSS -->
+    
+   
+     <link rel="stylesheet" type="text/css" href="/css/materia/bootstrap.min.css"/>
+    
+
+    <!-- Custom styles for this template -->
+  
+     <link rel="stylesheet" type="text/css" href="/css/style.css"/>
+     
+    
+  </head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="/index">DIGITAL BIT RARY</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarText">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Acceuil <span class="sr-only">(current)</span></a>
+      </li>
+     
+       <li class="nav-item">
+        <a class="nav-link" href="#" th:href="@{'/addbook/' + ${principal.getId()} }">ajouter un livre</a>
+      </li>
+      
+    </ul>
+    <span class="navbar-text">
+     username
+    </span>
+  </div>
+</nav>
+
+     <div  layout:fragment="content" class="container mySpace" th:each="book:${livre}">
+          <div class="jumbotron">
+           <img   th:src="@{'/livre/'+ ${book.getDoc().id}+'/pdf'}" height="100" width="400"/>
+          
+          <h1 th:text="${book.titre}">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum maiores autem vel doloribus consequuntur harum commodi eos tenetur vitae asperiores!</h1>
+          <p th:text="${book.isbn}">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum maiores autem vel doloribus consequuntur harum commodi eos tenetur vitae asperiores!</p>         
+          <a class="btn btn-primary"  th:href="@{'/livre/'+${book.getDoc().id}+'/pdf'}">voir le livre</a>
+          <a class="btn btn-secondary"  th:href="@{'/livre/'+${book.getDoc().id}+'/pdf'}">consuleter</a>
+         
+          </div>
+     </div>
+      
+     
+     
+</body>
+
+</html>

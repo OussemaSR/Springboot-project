@@ -1,0 +1,102 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org"
+ xmlns="http://www.w3.org/1999/xhtml"
+   
+    xmlns:sec="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/fontawesome.js"
+     integrity="sha384-7ox8Q2yzO/uWircfojVuCQOZl+ZZBg2D2J5nkpLqzH1HY0C1dHlTKIbpRz/LG23c" crossorigin="anonymous"></script>
+
+    <title>Login</title>
+
+
+
+
+    <!-- Bootstrap core CSS -->
+    
+   
+     <link rel="stylesheet" type="text/css" href="/css/materia/bootstrap.min.css"/>
+    
+
+    <!-- Custom styles for this template -->
+  
+     <link rel="stylesheet" type="text/css" href="/css/style.css"/>
+     
+    
+  </head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="/index">DIGITAL BIT RARY</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarText">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Acceuil <span class="sr-only">(current)</span></a>
+      </li>
+     
+  </div>
+</nav>
+
+
+	<div layout:fragment="content" class="container mySpace">
+	<div class="alert alert-info" th:if="${exist}">
+	<p class="text text-center">
+	  User with this Email already Exist
+	</p>
+	</div>
+		<form th:action="@{/inscription}" th:object="${utilisateur}" method="post">
+
+			<div class="form-group">
+				<label for="email" class="form-control-label">Email</label> <input
+					type="text" class="form-control" th:field="*{email}" id="email" required autofocus />
+				<div class="text text-danger" th:if="${#fields.hasErrors('email')}"
+					th:errors="*{email}"></div>
+			</div>
+			
+			
+			<div class="form-group">
+				<label for="username" class="form-control-label">username</label> <input
+					type="text" class="form-control" th:field="*{username}" id="username" required autofocus />
+				<div class="text text-danger" th:if="${#fields.hasErrors('username')}"
+					th:errors="*{username}"></div>
+			</div>
+			
+			<div class="form-group">
+				<label for="password" class="form-control-label">Password</label> <input
+					type="password" class="form-control" th:field="*{password}"
+					id="password" required autofocus />
+				<div class="text text-danger"
+					th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div>
+
+			</div>
+			<div class="form-group">
+				<label for="nom" class="form-control-label">nom</label> <input
+					type="text" class="form-control" th:field="*{nom}" id="nom" required autofocus />
+				<div class="text text-danger" th:if="${#fields.hasErrors('nom')}"
+					th:errors="*{nom}"></div>
+
+			</div>
+			
+			<div class="form-group">
+				<label for="prenom" class="form-control-label">prenom</label> <input
+					type="text" class="form-control" th:field="*{prenom}" id="prenom" required autofocus />
+				<div class="text text-danger" th:if="${#fields.hasErrors('prenom')}"
+					th:errors="*{prenom}"></div>
+
+			</div>
+			
+			<input type="submit" value="signup" class="btn btn-primary" />
+
+
+
+		</form>
+	</div>
+</body>
+</html>
